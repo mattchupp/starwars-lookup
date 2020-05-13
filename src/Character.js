@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Person from './components/Person.js'
 import axios from 'axios';
 
 class Character extends Component {
@@ -101,20 +102,16 @@ class Character extends Component {
             </button>
           </form>
 
+          <Person
+            name={this.state.name}
+            height={this.state.height}
+            weight={this.state.mass}
+            hairColor={this.state.hairColor}
+            eyeColor={this.state.eyeColor}
+            birthYear={this.state.birthYear}
+            gender={this.state.gender}
+          />
 
-          <div className="">
-            <div className="">
-              <h1>{this.state.name}</h1>
-              <p>
-                Height: {this.state.height}<br/>
-                Weight: {this.state.mass}<br/>
-                Hair Color: {this.state.hairColor}<br/>
-                Eye Color: {this.state.eyeColor}<br/>
-                Birth Year: {this.state.birthYear}<br/>
-                Gender: {this.state.gender}<br/>
-              </p>
-            </div>
-          </div>
 
         </div>
       )
