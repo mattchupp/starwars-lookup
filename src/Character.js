@@ -25,30 +25,27 @@ class Character extends Component {
   }
 
 
-
-
-
   /*
   ** fetches character from SWAPI
   */
   getCharacter = () => {
-      axios.get(`https://cors-anywhere.herokuapp.com/https://swapi.dev/api/people/${this.state.characterID}`)
-      .then(res => {
-        let presentState = {...this.state};
-          presentState.name = res.data.name;
-          presentState.height = res.data.height;
-          presentState.mass = res.data.mass;
-          presentState.hairColor = res.data.hair_color;
-          presentState.skinColor = res.data.skin_color;
-          presentState.eyeColor = res.data.eye_color;
-          presentState.birthYear = res.data.birth_year;
-          presentState.gender = res.data.gender;
-          this.setState({ ...presentState });
-          this.setState({ loaded: true});
-          console.log(this.state.name);
-        }).catch(err => {
-          console.log(err);
-        })
+    axios.get(`https://cors-anywhere.herokuapp.com/https://swapi.dev/api/people/${this.state.characterID}`)
+    .then(res => {
+      let presentState = {...this.state};
+        presentState.name = res.data.name;
+        presentState.height = res.data.height;
+        presentState.mass = res.data.mass;
+        presentState.hairColor = res.data.hair_color;
+        presentState.skinColor = res.data.skin_color;
+        presentState.eyeColor = res.data.eye_color;
+        presentState.birthYear = res.data.birth_year;
+        presentState.gender = res.data.gender;
+        this.setState({ ...presentState });
+        this.setState({ loaded: true});
+        console.log(this.state.name);
+      }).catch(err => {
+        console.log(err);
+      })
   }
 
   /* Form Handlers */
@@ -119,7 +116,7 @@ class Character extends Component {
       return (
         <div style={character}>
 
-          <form className="">
+          <form>
             <button onClick={this.handleSubmit}>
               Get Character
             </button>

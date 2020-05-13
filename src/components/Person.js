@@ -4,7 +4,7 @@ class Person extends Component {
 
   render() {
     return (
-      <div className="">
+      <div>
         <h1>{this.props.name}</h1>
         <p>
           Height: {this.props.height}<br/>
