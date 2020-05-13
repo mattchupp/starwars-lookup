@@ -15,7 +15,7 @@ class Character extends Component {
       eyeColor: "",
       birthYear: "",
       gender: "",
-      characterID: 1,
+      characterID: Math.floor(Math.random() * (82 - 1) + 1),
       submitted: false,
       loaded: false
     };
