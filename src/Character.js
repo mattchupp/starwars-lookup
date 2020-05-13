@@ -15,6 +15,8 @@ class Character extends Component {
       eyeColor: "",
       birthYear: "",
       gender: "",
+      homeworld: "",
+      homeworldName: "",
       characterID: Math.floor(Math.random() * (82 - 1) + 1),
       submitted: false,
       loaded: false
@@ -40,12 +42,22 @@ class Character extends Component {
         presentState.eyeColor = res.data.eye_color;
         presentState.birthYear = res.data.birth_year;
         presentState.gender = res.data.gender;
+        presentState.homeworld = res.data.homeworld;
         this.setState({ ...presentState });
-        this.setState({ loaded: true});
         console.log(this.state.name);
       }).catch(err => {
         console.log(err);
       })
+    .then(() => {
+      axios.get(`https://cors-anywhere.herokuapp.com/${this.state.homeworld}`)
+      .then(res => {
+         this.setState({ homeworldName: res.data.name });
+         this.setState({ loaded: true});
+         console.log(this.state.homeworldName);
+      }).catch(err => {
+         console.log(err);
+      })
+    })
   }
 
   /* Form Handlers */
@@ -68,24 +80,31 @@ class Character extends Component {
       margin: '0 auto'
     }
 
+    const button = {
+      padding: '10px 10px',
+      fontSize: '20px'
+    }
+
     /*
     If submitted but not yet loaded show the loading animation
 
     ** logic that can be added for loading later on
+    */
     if (this.state.submitted && !this.state.loaded) {
       return (
-        <div style={forecast}>
+        <div style={character}>
 
           <form className="uk-margin-small">
-            <button onClick={this.handleSubmit}>
+            <button style={button} onClick={this.handleSubmit}>
               Get Character
             </button>
           </form>
+          <p>Loading...</p>
 
         </div>
       )
     }
-    */
+
 
     /* make sure zip code is submitted and data is loaded before showing weather*/
     //if (this.state.submitted && this.state.loaded) {
@@ -94,7 +113,7 @@ class Character extends Component {
         <div style={character}>
 
           <form className="uk-margin-small">
-            <button onClick={this.handleSubmit}>
+            <button style={button} onClick={this.handleSubmit}>
               Get Character
             </button>
           </form>
@@ -107,6 +126,7 @@ class Character extends Component {
             eyeColor={this.state.eyeColor}
             birthYear={this.state.birthYear}
             gender={this.state.gender}
+            homeworld={this.state.homeworldName}
           />
 
 
@@ -117,7 +137,7 @@ class Character extends Component {
         <div style={character}>
 
           <form>
-            <button onClick={this.handleSubmit}>
+            <button style={button} onClick={this.handleSubmit}>
               Get Character
             </button>
           </form>
