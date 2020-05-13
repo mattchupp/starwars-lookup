@@ -17,6 +17,8 @@ class Character extends Component {
       gender: "",
       homeworld: "",
       homeworldName: "",
+      films: [],
+      filmsList: [],
       characterID: Math.floor(Math.random() * (82 - 1) + 1),
       submitted: false,
       loaded: false
@@ -43,8 +45,10 @@ class Character extends Component {
         presentState.birthYear = res.data.birth_year;
         presentState.gender = res.data.gender;
         presentState.homeworld = res.data.homeworld;
+        presentState.films = res.data.films;
         this.setState({ ...presentState });
         console.log(this.state.name);
+        console.log(this.state.films);
       }).catch(err => {
         console.log(err);
       })
@@ -58,6 +62,7 @@ class Character extends Component {
          console.log(err);
       })
     })
+
   }
 
   /* Form Handlers */
