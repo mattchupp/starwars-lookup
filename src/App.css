@@ -1,38 +1,81 @@
-.App {
-  text-align: center;
+html {
+  width: 100%;
+  height: 100%;
+  background-color: #303030;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.loader {
+  margin-top: 30px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.circle1 {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid #6fd6dd;
+  background-color: #6fd6dd;
+  width: 10px;
+  height: 10px;
+  animation: updown infinite 2s ease-in;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@keyframes updown {
+  0%{transform: translate(0px, 0px)}
+  25%{transform: translate(0px, -15px)}
+  50%{transform: translate(0px, 15px)}
+  75%{transform: translate(0px, -15px)}
+  100%{transform: translate(0px, 0px)}
 }
 
-.App-link {
-  color: #61dafb;
+.circle2 {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid #6fd6dd;
+  background-color: #6fd6dd;
+  width: 10px;
+  height: 10px;
+  animation: leftright infinite 1s ease-out;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes leftright {
+  0%{transform: translate(0px, 0px)}
+  25%{transform: translate(-15px, 0px)}
+  50%{transform: translate(15px, 0px)}
+  75%{transform: translate(-15px, 0px)}
+  100%{transform: translate(0px, 0px)}
+}
+
+.circle3 {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid #6fd6dd;
+  background-color: #6fd6dd;
+  width: 10px;
+  height: 10px;
+  animation: diagonal1 infinite 3s;
+}
+
+@keyframes diagonal1 {
+  0%{transform: translate(0px, 0px)}
+  25%{transform: translate(-15px, 15px)}
+  50%{transform: translate(15px, -15px)}
+  75%{transform: translate(-15px, 15px)}
+  100%{transform: translate(0px, 0px)}
+}
+
+.circle4 {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid #6fd6dd;
+  background-color: #6fd6dd;
+  width: 10px;
+  height: 10px;
+  animation: diagonal2 infinite 3s;
+}
+
+@keyframes diagonal2 {
+  0%{transform: translate(0px, 0px)}
+  25%{transform: translate(15px, -15px)}
+  50%{transform: translate(-15px, 15px)}
+  75%{transform: translate(15px, -15px)}
+  100%{transform: translate(0px, 0px)}
 }
